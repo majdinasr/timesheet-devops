@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -17,6 +18,7 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "CONTRAT")
 public class Contrat implements Serializable {
 	
 	private static final long serialVersionUID = 6191889143079517027L;
@@ -38,6 +40,7 @@ public class Contrat implements Serializable {
 	@JsonIgnore
 	//@JsonBackReference
 	@OneToOne(mappedBy="contrat")
+	private Employe employe;
 
 	private float salaire;
 
@@ -45,11 +48,11 @@ public class Contrat implements Serializable {
 		super();
 	}
 	
-	public Contrat(Date dateDebut, String typeContrat, float salaire, int reference) {
+	public Contrat(Date dateDebut, String typeContrat, float salaire) {
 		this.dateDebut = dateDebut;
 		this.typeContrat = typeContrat;
 		this.salaire = salaire;
-		this.reference = reference ;
+		
 	}
 
 
@@ -85,7 +88,13 @@ public class Contrat implements Serializable {
 		this.salaire = salaire;
 	}
 
+	public Employe getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
+	}
 	
 	
 }
-

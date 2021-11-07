@@ -4,12 +4,13 @@ import java.util.List;
 
 import tn.esprit.spring.entities.Contrat;
 
-public interface IContratService 
-{ 
+
+public interface IContratService { 
 	 
-	List<Contrat> retrieveAllContrats(); 
+List<Contrat> retrieveAllContrats(); 
 	Contrat addContrat(Contrat c);
-	void deleteContrat(String id);
+	void deleteContrat(int reference);
 	Contrat updateContrat(Contrat c);
-	Contrat retrieveContrat(String id);
-}
+	Contrat retrieveContrat(int reference);
+
+} 

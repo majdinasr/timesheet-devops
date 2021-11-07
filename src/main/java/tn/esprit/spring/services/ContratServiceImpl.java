@@ -1,4 +1,5 @@
 package tn.esprit.spring.services;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.repository.ContratRepository;
+
 @Service
 public class ContratServiceImpl implements IContratService {
 
@@ -56,19 +58,16 @@ public class ContratServiceImpl implements IContratService {
 	}
 
 	@Override
-	public void deleteContrat(String id) {
+	public void deleteContrat(int  reference) {
 		L.info("In Method deleteContrat :"); 
-		contratRepository.deleteById(Long.parseLong(id)); 
+		contratRepository.deleteById(reference); 
 		L.info("Out of Method deleteContrat with Sucess");  
 	}
 
 	@Override
-	public Contrat retrieveContrat(String id) {
-		L.info("In Method retrieveContrat :");
-		//Contrat c =  contratRepository.findById(Long.parseLong(id)).orElse(null);
-		Contrat c =  contratRepository.findById(Long.parseLong(id)).get(); 
-		L.info("Out of Method retrieveContrat with Sucess"); 
-		return c; 
+	public Contrat retrieveContrat(int reference) {
+		return contratRepository.findById(reference).get();
+		  
 	}
 
 }

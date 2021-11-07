@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.UserRepository;
-
 @Service
 public class UserServiceImpl implements IUserService {
 

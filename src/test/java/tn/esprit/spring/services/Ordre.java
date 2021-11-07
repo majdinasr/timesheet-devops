@@ -1,5 +1,5 @@
 package tn.esprit.spring.services;
 
-public @interface SpringBootTest {
+public interface Ordre {
 
 }

@@ -1,8 +1,10 @@
 package tn.esprit.spring.services;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
@@ -10,51 +12,52 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import tn.esprit.spring.entities.Contrat;
+import tn.esprit.spring.services.ContratServiceImpl;
+import tn.esprit.spring.services.IContratService;
 
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-public class ContratServiveImplTest {
+public class ContratServiceImplTest {
 	@Autowired
-	IContratService us;
+	IContratService cs;
 
 	
-	public void testRetrieveAllContrats() {
-	List<Contrat> listContrats = us.retrieveAllContrats();
-	Assertions.assertEquals(20, listContrats.size());
-	}
+	/*public void testRetrieveAllContrats() {
+	List<Contrat> listContrats = cs.retrieveAllContrats();
+	Assertions.assertEquals(16, listContrats.size());
+	}*/
 	
-	
+	/*@Test
 	public void testAddContrat() throws ParseException, java.text.ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date d = dateFormat.parse("2015-03-23");
-		Contrat c = new Contrat (d,"affaire", 15,100);
-		Contrat contratAdded = us.addContrat(c);
+		Date d = dateFormat.parse("2020-10-20");
+		Contrat c = new Contrat (d,"CDI", 20);
+		Contrat contratAdded = cs.addContrat(c);
 		Assertions.assertEquals(c.getReference(), contratAdded.getReference());
-	}
+	}*/
 		
-	
-	public void testUpdateContrat() throws ParseException, java.text.ParseException {
+	/*@Test
+	public void testUpdateContrat() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date d = dateFormat.parse("2015-03-15");
-		Contrat c = new Contrat (d,"affaire", 15,100);
-		Contrat contratUpdated = us.addContrat(c);
+		Date d = dateFormat.parse("2011-12-6");
+		Contrat c = new Contrat (d,"CDIII", 12);
+		Contrat contratUpdated = cs.addContrat(c);
 		Assertions.assertEquals(c.getReference(), contratUpdated.getReference());
 		
 		
-	}
-	
+	}*/
+	@Test
 	public void testDeleteContrat(){
-		us.deleteContrat("25");
-		Assertions.assertNull(us.retrieveContrat("25"));
+		cs.deleteContrat(2);
+		Assertions.assertNull(cs.retrieveContrat(2));
 		
-	}
+	}	
 	
-	
-	
-	
-	private static final Logger L = LogManager.getLogger(ContratServiceImpl.class);
+	/*private static final Logger L = LogManager.getLogger(ContratServiceImpl.class);
 	
 	@Test
 	public void testAll(){
@@ -69,9 +72,8 @@ public class ContratServiveImplTest {
 			L.error("Out of testAll()with error:" +e);
 		}
 		
-	}
+	}*/
 	
 
 }
-
 
