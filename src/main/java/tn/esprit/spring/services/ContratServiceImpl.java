@@ -66,8 +66,25 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public Contrat retrieveContrat(int reference) {
-		return contratRepository.findById(reference).get();
-		  
-	}
+		Contrat contrat = null ;
+				try{
+		contrat = contratRepository.findById(reference).get();
+		if(contrat.getId()) {
+		L.info("In Method retrieveContrats :");
+		}
+		else {
+		throw new Exception("Contrat not found");
+		}
 
+
+
+		return contrat; 
+		} catch(Exception e) {
+					L.error("Error fetching contact: " +e);
+
+		}
+		return contrat ;
+				
+				  
+			}
 }

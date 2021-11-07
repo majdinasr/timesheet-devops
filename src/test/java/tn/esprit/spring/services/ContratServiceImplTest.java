@@ -31,14 +31,14 @@ public class ContratServiceImplTest {
 	Assertions.assertEquals(16, listContrats.size());
 	}*/
 	
-	/*@Test
+	@Test
 	public void testAddContrat() throws ParseException, java.text.ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2020-10-20");
 		Contrat c = new Contrat (d,"CDI", 20);
 		Contrat contratAdded = cs.addContrat(c);
 		Assertions.assertEquals(c.getReference(), contratAdded.getReference());
-	}*/
+	}
 		
 	/*@Test
 	public void testUpdateContrat() throws ParseException {
@@ -50,10 +50,10 @@ public class ContratServiceImplTest {
 		
 		
 	}*/
-	@Test
+	/*@Test
 	public void testDeleteContrat(){
-		cs.deleteContrat(2);
-		Assertions.assertNull(cs.retrieveContrat(2));
+		cs.deleteContrat(3);
+		Assertions.assertNull(cs.retrieveContrat(3));
 		
 	}	
 	

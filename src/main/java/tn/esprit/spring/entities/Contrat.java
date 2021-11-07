@@ -95,6 +95,11 @@ public class Contrat implements Serializable {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
+
+	public boolean getId() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }
